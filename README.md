@@ -14,21 +14,16 @@ placeholders below with the corresponding image paths.
 
 🖥️ Main Calculator
 
-<!-- Add your main calculator screenshot here -->
+![Main Calculator](screenshots/calculator-main.png)
 
 <br>{=html}<br>{=html}<br>{=html}<br>{=html}<br>{=html}
 
 🧪 Scientific Calculator
 
-<!-- Add your scientific calculator screenshot here -->
+![Scientific Calculator](screenshots/calculator-scientific.png)
 
 <br>{=html}<br>{=html}<br>{=html}<br>{=html}<br>{=html}
 
-📜 Calculation History
-
-<!-- Add your calculation history screenshot here -->
-
-<br>{=html}<br>{=html}<br>{=html}<br>{=html}<br>{=html}
 
 ✨ Features
 
