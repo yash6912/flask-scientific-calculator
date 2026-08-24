@@ -34,7 +34,6 @@ DEG/RAD modes.
 - **HTML5**
 - **CSS3**
 - **JavaScript**
-- **Jinja2**
 
 ## 📁 Project Structure
 
