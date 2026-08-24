@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Scientific Calculator</title>
+
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="topbar">
+
+
+        <div class="brand">
+
+
+            <div class="brand-icon">
+
+                ∑
+
+            </div>
+
+
+            <div>
+
+                <h1>
+                    Scientific Calculator
+                </h1>
+
+                <p>
+                    Flask Calculator
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="status">
+
+            <span class="status-dot"></span>
+
+            Flask Online
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="calculator-container">
+
+
+        <!-- =================================================
+             CALCULATOR
+        ================================================== -->
+
+        <div class="calculator">
+
+
+            <!-- DISPLAY -->
+
+            <div class="display">
+
+
+                <div class="display-top">
+
+
+                    <span
+                        id="modeLabel">
+
+                        DEG
+
+                    </span>
+
+
+                    <span>
+
+                        SCIENTIFIC
+
+                    </span>
+
+
+                </div>
+
+
+
+                <!-- Expression -->
+
+                <div
+                    id="expressionDisplay"
+                    class="expression-display">
+
+                    0
+
+                </div>
+
+
+
+                <!-- Result -->
+
+                <div
+                    id="resultDisplay"
+                    class="result-display">
+
+                    0
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SCIENTIFIC BUTTONS
+            ================================================== -->
+
+            <div class="scientific-buttons">
+
+
+                <button
+                    type="button"
+                    class="function"
+                    onclick="toggleMode()">
+
+                    DEG
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="function"
+                    onclick="insertFunction('sin')">
+
+                    sin
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="function"
+                    onclick="insertFunction('cos')">
+
+                    cos
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="function"
+                    onclick="insertFunction('tan')">
+
+                    tan
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="function"
+                    onclick="insertFunction('log')">
+
+                    log
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="function"
+                    onclick="insertFunction('ln')">
+
+                    ln
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="function"
+                    onclick="insertFunction('sqrt')">
+
+                    √
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="function"
+                    onclick="insert('^2')">
+
+                    x²
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="function"
+                    onclick="insert('^')">
+
+                    xʸ
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="function"
+                    onclick="insert('!')">
+
+                    x!
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="function"
+                    onclick="insertFunction('asin')">
+
+                    sin⁻¹
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="function"
+                    onclick="insertFunction('acos')">
+
+                    cos⁻¹
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="function"
+                    onclick="insertFunction('atan')">
+
+                    tan⁻¹
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="function"
+                    onclick="insert('π')">
+
+                    π
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="function"
+                    onclick="insert('e')">
+
+                    e
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MAIN BUTTONS
+            ================================================== -->
+
+            <div class="main-buttons">
+
+
+                <button
+                    type="button"
+                    class="clear"
+                    onclick="clearCalculator()">
+
+                    AC
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="delete"
+                    onclick="deleteLast()">
+
+                    DEL
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="operator"
+                    onclick="insert('%')">
+
+                    %
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="operator"
+                    onclick="insert('÷')">
+
+                    ÷
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    onclick="insert('7')">
+
+                    7
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="insert('8')">
+
+                    8
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="insert('9')">
+
+                    9
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="operator"
+                    onclick="insert('×')">
+
+                    ×
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    onclick="insert('4')">
+
+                    4
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="insert('5')">
+
+                    5
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="insert('6')">
+
+                    6
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="operator"
+                    onclick="insert('-')">
+
+                    −
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    onclick="insert('1')">
+
+                    1
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="insert('2')">
+
+                    2
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="insert('3')">
+
+                    3
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="operator"
+                    onclick="insert('+')">
+
+                    +
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    onclick="insert('(')">
+
+                    (
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="insert('0')">
+
+                    0
+
+                </button>
+
+
+                <button
+                    type="button"
+                    onclick="insert('.')">
+
+                    .
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="equals"
+                    onclick="calculateResult()">
+
+                    =
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             HISTORY
+        ================================================== -->
+
+        <aside class="history">
+
+
+            <div class="history-header">
+
+
+                <div>
+
+                    <h2>
+                        Calculation History
+                    </h2>
+
+                    <p>
+                        Your recent calculations
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    onclick="clearHistory()">
+
+                    Clear
+
+                </button>
+
+
+            </div>
+
+
+            <div id="historyList">
+
+            </div>
+
+
+        </aside>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+
+        <span>
+
+            Flask Scientific Calculator
+
+        </span>
+
+
+        <span>
+
+            Python • Flask • HTML • CSS • JavaScript
+
+        </span>
+
+
+    </footer>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================== -->
+
+<script>
+
+
+// ============================================================
+// VARIABLES
+// ============================================================
+
+let expression = "";
+
+let mode = "DEG";
+
+
+// ============================================================
+// DISPLAY
+// ============================================================
+
+function updateDisplay() {
+
+
+    const expressionDisplay =
+        document.getElementById(
+            "expressionDisplay"
+        );
+
+
+    const resultDisplay =
+        document.getElementById(
+            "resultDisplay"
+        );
+
+
+    expressionDisplay.innerText =
+        expression || "0";
+
+
+    resultDisplay.innerText =
+        expression || "0";
+
+}
+
+
+
+// ============================================================
+// INSERT
+// ============================================================
+
+function insert(value) {
+
+
+    expression += value;
+
+
+    updateDisplay();
+
+
+}
+
+
+
+// ============================================================
+// INSERT FUNCTION
+// ============================================================
+
+function insertFunction(functionName) {
+
+
+    expression +=
+        functionName + "(";
+
+
+    updateDisplay();
+
+
+}
+
+
+
+// ============================================================
+// DELETE
+// ============================================================
+
+function deleteLast() {
+
+
+    expression =
+        expression.slice(
+            0,
+            -1
+        );
+
+
+    updateDisplay();
+
+
+}
+
+
+
+// ============================================================
+// CLEAR CALCULATOR
+// ============================================================
+
+function clearCalculator() {
+
+
+    expression = "";
+
+
+    document.getElementById(
+        "resultDisplay"
+    ).innerText = "0";
+
+
+    updateDisplay();
+
+
+}
+
+
+
+// ============================================================
+// DEG / RAD
+// ============================================================
+
+function toggleMode() {
+
+
+    mode =
+        mode === "DEG"
+        ? "RAD"
+        : "DEG";
+
+
+    document.getElementById(
+        "modeLabel"
+    ).innerText = mode;
+
+
+    document.querySelector(
+        ".scientific-buttons button"
+    ).innerText = mode;
+
+
+}
+
+
+
+// ============================================================
+// CALCULATE
+// ============================================================
+
+async function calculateResult() {
+
+
+    if (!expression) {
+
+        return;
+
+    }
+
+
+    // Show calculating state
+
+    document.getElementById(
+        "resultDisplay"
+    ).innerText = "...";
+
+
+    try {
+
+
+        // Send expression to Flask
+
+        const response =
+            await fetch(
+                "/calculate",
+                {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body: JSON.stringify({
+
+                        expression:
+                            expression,
+
+                        mode:
+                            mode
+
+                    })
+
+                }
+            );
+
+
+
+        // Get Flask response
+
+        const data =
+            await response.json();
+
+
+
+        // =================================================
+        // SUCCESS
+        // =================================================
+
+        if (data.success) {
+
+
+            // Display result
+
+            document.getElementById(
+                "resultDisplay"
+            ).innerText =
+                data.result;
+
+
+            // Add calculation to history
+
+            addToHistory(
+
+                data.expression,
+
+                data.result
+
+            );
+
+
+            // Save history
+
+            saveHistory();
+
+
+        }
+
+
+        // =================================================
+        // ERROR
+        // =================================================
+
+        else {
+
+
+            document.getElementById(
+                "resultDisplay"
+            ).innerText =
+                "Error";
+
+
+            showError(
+                data.error
+            );
+
+
+        }
+
+
+    }
+
+    catch (error) {
+
+
+        document.getElementById(
+            "resultDisplay"
+        ).innerText =
+            "Error";
+
+
+        showError(
+            "Unable to connect to Flask server"
+        );
+
+
+        console.error(
+            error
+        );
+
+
+    }
+
+}
+
+
+
+// ============================================================
+// SHOW ERROR
+// ============================================================
+
+function showError(message) {
+
+
+    console.error(
+        message
+    );
+
+
+}
+
+
+
+// ============================================================
+// ADD TO HISTORY
+// ============================================================
+
+function addToHistory(
+    expressionValue,
+    resultValue
+) {
+
+
+    const historyList =
+        document.getElementById(
+            "historyList"
+        );
+
+
+    // Remove empty message
+
+    const emptyMessage =
+        historyList.querySelector(
+            ".empty-history"
+        );
+
+
+    if (emptyMessage) {
+
+        emptyMessage.remove();
+
+    }
+
+
+
+    // Create history item
+
+    const historyItem =
+        document.createElement(
+            "div"
+        );
+
+
+    historyItem.className =
+        "history-item";
+
+
+    historyItem.innerHTML = `
+
+        <div class="history-expression">
+
+            ${escapeHTML(
+                expressionValue
+            )}
+
+        </div>
+
+
+        <div class="history-result">
+
+            = ${escapeHTML(
+                String(resultValue)
+            )}
+
+        </div>
+
+
+        <div class="history-time">
+
+            ${new Date().toLocaleTimeString()}
+
+        </div>
+
+    `;
+
+
+    // Add newest operation at top
+
+    historyList.prepend(
+        historyItem
+    );
+
+
+}
+
+
+
+// ============================================================
+// SAVE HISTORY
+// ============================================================
+
+function saveHistory() {
+
+
+    const historyList =
+        document.querySelectorAll(
+            ".history-item"
+        );
+
+
+    const history = [];
+
+
+    historyList.forEach(
+        item => {
+
+
+            const expressionElement =
+                item.querySelector(
+                    ".history-expression"
+                );
+
+
+            const resultElement =
+                item.querySelector(
+                    ".history-result"
+                );
+
+
+            const timeElement =
+                item.querySelector(
+                    ".history-time"
+                );
+
+
+            if (
+                expressionElement &&
+                resultElement
+            ) {
+
+
+                history.push({
+
+                    expression:
+                        expressionElement.innerText,
+
+                    result:
+                        resultElement.innerText
+                            .replace(
+                                "= ",
+                                ""
+                            ),
+
+                    time:
+                        timeElement
+                        ? timeElement.innerText
+                        : ""
+
+                });
+
+
+            }
+
+
+        }
+    );
+
+
+    localStorage.setItem(
+
+        "calculatorHistory",
+
+        JSON.stringify(
+            history
+        )
+
+    );
+
+
+}
+
+
+
+// ============================================================
+// LOAD HISTORY
+// ============================================================
+
+function loadHistory() {
+
+
+    const savedHistory =
+        JSON.parse(
+
+            localStorage.getItem(
+                "calculatorHistory"
+            )
+
+        ) || [];
+
+
+    const historyList =
+        document.getElementById(
+            "historyList"
+        );
+
+
+    historyList.innerHTML = "";
+
+
+    if (
+        savedHistory.length === 0
+    ) {
+
+
+        historyList.innerHTML = `
+
+            <div class="empty-history">
+
+                No calculations yet
+
+            </div>
+
+        `;
+
+
+        return;
+
+    }
+
+
+
+    savedHistory.forEach(
+        item => {
+
+
+            const historyItem =
+                document.createElement(
+                    "div"
+                );
+
+
+            historyItem.className =
+                "history-item";
+
+
+            historyItem.innerHTML = `
+
+                <div class="history-expression">
+
+                    ${escapeHTML(
+                        item.expression
+                    )}
+
+                </div>
+
+
+                <div class="history-result">
+
+                    = ${escapeHTML(
+                        String(item.result)
+                    )}
+
+                </div>
+
+
+                <div class="history-time">
+
+                    ${escapeHTML(
+                        item.time
+                    )}
+
+                </div>
+
+            `;
+
+
+            historyList.appendChild(
+                historyItem
+            );
+
+
+        }
+    );
+
+
+}
+
+
+
+// ============================================================
+// CLEAR HISTORY
+// ============================================================
+
+function clearHistory() {
+
+
+    localStorage.removeItem(
+        "calculatorHistory"
+    );
+
+
+    loadHistory();
+
+
+}
+
+
+
+// ============================================================
+// ESCAPE HTML
+// ============================================================
+
+function escapeHTML(value) {
+
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        value;
+
+
+    return div.innerHTML;
+
+
+}
+
+
+
+// ============================================================
+// KEYBOARD SUPPORT
+// ============================================================
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+
+        const key =
+            event.key;
+
+
+        // Numbers
+
+        if (
+            /[0-9]/.test(key)
+        ) {
+
+
+            insert(key);
+
+
+        }
+
+
+        // Operators
+
+        else if (
+            key === "+"
+        ) {
+
+
+            insert("+");
+
+
+        }
+
+
+        else if (
+            key === "-"
+        ) {
+
+
+            insert("-");
+
+
+        }
+
+
+        else if (
+            key === "*"
+        ) {
+
+
+            insert("×");
+
+
+        }
+
+
+        else if (
+            key === "/"
+        ) {
+
+
+            insert("÷");
+
+
+        }
+
+
+        // Parentheses
+
+        else if (
+            key === "("
+        ) {
+
+
+            insert("(");
+
+
+        }
+
+
+        else if (
+            key === ")"
+        ) {
+
+
+            insert(")");
+
+
+        }
+
+
+        // Decimal
+
+        else if (
+            key === "."
+        ) {
+
+
+            insert(".");
+
+
+        }
+
+
+        // Enter
+
+        else if (
+            key === "Enter"
+        ) {
+
+
+            event.preventDefault();
+
+
+            calculateResult();
+
+
+        }
+
+
+        // Backspace
+
+        else if (
+            key === "Backspace"
+        ) {
+
+
+            deleteLast();
+
+
+        }
+
+
+        // Escape
+
+        else if (
+            key === "Escape"
+        ) {
+
+
+            clearCalculator();
+
+
+        }
+
+
+    }
+);
+
+
+
+// ============================================================
+// START APPLICATION
+// ============================================================
+
+loadHistory();
+
+updateDisplay();
+
+
+</script>
+
+
+</body>
+
+</html>
