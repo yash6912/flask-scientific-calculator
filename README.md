@@ -16,13 +16,9 @@ placeholders below with the corresponding image paths.
 
 ![Main Calculator](screenshots/calculator-main.png)
 
-<br>{=html}<br>{=html}<br>{=html}<br>{=html}<br>{=html}
-
 🧪 Scientific Calculator
 
 ![Scientific Calculator](screenshots/calculator-scientific.png)
-
-<br>{=html}<br>{=html}<br>{=html}<br>{=html}<br>{=html}
 
 
 ✨ Features
